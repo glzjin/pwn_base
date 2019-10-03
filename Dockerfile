@@ -4,7 +4,7 @@ COPY ./ctf.xinetd /etc/xinetd.d/ctf
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g" /etc/apt/sources.list && \
     apt-get update && apt-get -y dist-upgrade && \
-    apt-get install -y lib32z1 xinetd build-essential && \
+    apt-get install -y lib32z1 xinetd build-essential libssl1.0.0 libssl-dev && \
     useradd -m ctf && \
     echo 'ctf - nproc 1500' >>/etc/security/limits.conf
 
